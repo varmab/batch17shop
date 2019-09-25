@@ -10,13 +10,18 @@ class Catalog extends Component{
         }
     }
 
+    addItemToCart=(item)=>{
+        console.log(item)
+        this.props.addItemToCart(item);
+    }
+
     render(){
         return(
             <React.Fragment>
                 <h1>Catalog</h1>
                 {
                     this.state.items.map((item)=>{
-                        return <Item item={item}/>
+                        return <Item key={item.id} item={item} addItemToCart={this.addItemToCart} isCart={false}/>
                     })
                 }
             </React.Fragment>

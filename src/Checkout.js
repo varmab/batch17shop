@@ -1,17 +1,26 @@
 import React, { Component} from 'react'
 
 class Checkout extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state={
-
+            orderTotal:props.orderTotal
         }
+    }
+
+    componentWillReceiveProps(newProps){
+        this.setState({
+            orderTotal:newProps.orderTotal
+        })
     }
 
     render(){
         return(
-            <h1>Checkout</h1>
+            <React.Fragment>
+                <h1>Checkout</h1>
+                <p>Total:{this.state.orderTotal}</p>
+            </React.Fragment>
         )
     }
 }
